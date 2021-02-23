@@ -4,10 +4,11 @@
     <title>DID WG Resolutions playground</title>
     <style type="text/css">
         main {
-            width: 50%; margin-left: auto; margin-right: auto;
+            width: 70%; margin-left: auto; margin-right: auto;
         }
         nav a {
             padding: 0.2em; margin: 0.2em;
+            display: inline-block;
             border: 1px solid silver;
         }
         nav a:hover {
@@ -28,12 +29,14 @@
         }
         .done {
             text-decoration: line-through;
+            color: gray;
         }
     </style>
   </head>
   <body>
 <main>
     <h1>DID WG Resolutions</h1>
+    <nav id="done"><button>show/hide done</button></nav>
     <nav id="tags"></nav>
 <ul>
 <li><a href="https://www.w3.org/2019/did-wg/Meetings/Minutes/2021-02-09-did#resolution1">Resolution #1 on 2021-02-09</a>: To exit the DID Core Candidate Recommendation phase, the DID WG will require two things: 1) for normative statements that are machine testable, at least two interoperable implementations per feature, where each feature is defined as one or more normative statement in the specification, and 2) for normative statements that are only human-testable, at least two demonstrations of implementation per feature, where each feature is defined as one or more normative statement in the specification.</li>
@@ -187,6 +190,18 @@ tagBtns.forEach(function(btn){
             }
         });
     });
+});
+
+var doneBtn = document.querySelector("nav > button");
+doneBtn.addEventListener("click", function(e){
+  var doneLis = document.querySelectorAll(".done");
+  doneLis.forEach(function(doneLi){
+    if(doneLi.style.display == "none"){
+      doneLi.style.display = "block";
+    }else{
+      doneLi.style.display = "none";
+    }
+  });
 });
 </script>
 </body>
